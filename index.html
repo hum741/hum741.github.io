@@ -1,3 +1,764 @@
-<p>Hello大家好</p>
-<p>我是辽宁师范大学影视艺术学院的教师：姬拓。这是我的个人网站</p>
-<p>很高兴你来到这里，以下是我的个人简介：</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张明博士 - 个人学术网站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #5D5FEF, #3F4EF3);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect fill="none" width="200" height="200"/><path fill="rgba(255,255,255,0.05)" d="M50,50 C75,25 125,25 150,50 C175,75 175,125 150,150 C125,175 75,175 50,150 C25,125 25,75 50,50 Z"/></svg>');
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 顶部头像与头衔模块 */
+        .header-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 0 auto 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+            max-width: 800px;
+        }
+        
+        .header-section:hover {
+            transform: translateY(-8px);
+        }
+        
+        .header-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #5D5FEF, #3F4EF3);
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+            background: linear-gradient(135deg, #5D5FEF, #3F4EF3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+        
+        .header-text {
+            width: 100%;
+        }
+        
+        .name {
+            font-size: 2.8rem;
+            color: #3F4EF3;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .title {
+            font-size: 1.6rem;
+            color: #5D5FEF;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #5D5FEF;
+            border-radius: 3px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            color: #3F4EF3;
+            font-size: 1.3rem;
+        }
+        
+        /* 主体内容布局 */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 卡片通用样式 */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.4 ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #5D5FEF, #3F4EF3);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            color: #3F4EF3;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(93, 95, 239, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .card-title i {
+            background: linear-gradient(135deg, #5D5FEF, #3F4EF3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        /* 个人简介模块 */
+        .bio-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .bio-content p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        
+        /* 工作经历模块 */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-left: 15px;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            height: calc(100% - 20px);
+            width: 3px;
+            background: linear-gradient(to bottom, #5D5FEF, #3F4EF3);
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -36px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3F4EF3;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3F4EF3;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: #3F4EF3;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .timeline-company {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* 学术成果模块 */
+        .publications-list {
+            list-style: none;
+        }
+        
+        .publication-item {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(93, 95, 239, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-item:hover {
+            background: rgba(93, 95, 239, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            transform: translateX(5px);
+        }
+        
+        .publication-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #3F4EF3;
+        }
+        
+        .publication-authors {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .publication-journal {
+            color: #5D5FEF;
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .publication-journal i {
+            color: #3F4EF3;
+        }
+        
+        .publication-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #5D5FEF, #3F4EF3);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3 ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(93, 95, 239, 0.3);
+        }
+        
+        .publication-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(93, 95, 239, 0.4);
+        }
+        
+        /* 课题与学术交流模块 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3 ease;
+            border-left: 4px solid #5D5FEF;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            border-left: 4px solid #3F4EF3;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            color: #3F4EF3;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .project-title i {
+            color: #5D5FEF;
+        }
+        
+        .project-period {
+            background: rgba(93, 95, 239, 0.1);
+            color: #3F4EF3;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .project-description {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .conference-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(93, 95, 239, 0.2);
+        }
+        
+        .conference-icon {
+            background: linear-gradient(135deg, #5D5FEF, #3F4EF3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .conference-details {
+            flex-grow: 1;
+        }
+        
+        .conference-title {
+            font-size: 1.2rem;
+            color: #3F4EF3;
+            margin-bottom: 5px;
+        }
+        
+        .conference-location {
+            color: #666;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .conference-date {
+            background: rgba(93, 95, 239, 0.1);
+            color: #3F4EF3;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        
+        /* 音乐控制 */
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .music-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5D5FEF, #3F4EF3);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3 ease;
+        }
+        
+        .music-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3 ease;
+        }
+        
+        .footer-link:hover {
+            color: #ffcc00;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部：个人头像与头衔模块 -->
+        <section class="header-section">
+            <div class="profile-container">
+                <div class="profile-img">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="header-text">
+                    <h1 class="name">张明</h1>
+                    <h2 class="title">人工智能研究员 | 计算机科学博士</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-university"></i>
+                            <span>北京大学人工智能研究所</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>北京市海淀区</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>zhangming@ai-lab.edu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="main-content">
+            <!-- 左侧：个人简介和工作经历 -->
+            <div class="left-column">
+                <!-- 个人简介模块 -->
+                <section class="card">
+                    <h2 class="card-title"><i class="fas fa-user"></i>个人简介</h2>
+                    <div class="bio-content">
+                        <p>张明博士是北京大学人工智能研究所的高级研究员，专注于机器学习、计算机视觉和自然语言处理的研究。他于2016年获得麻省理工学院计算机科学博士学位，师从Yoshua Bengio教授。</p>
+                        <p>博士期间的研究主要集中在深度学习在医疗影像分析中的应用，相关成果发表在Nature Machine Intelligence、IEEE TPAMI等顶级期刊上。</p>
+                        <p>在加入北京大学之前，张明博士曾在DeepMind担任研究科学家，领导了多个计算机视觉项目，相关成果已应用于多个医疗诊断系统。他目前主持国家自然科学基金重点项目2项，参与国家重点研发计划1项。</p>
+                        <p>张博士已发表学术论文60余篇，被引用超过4500次，持有专利8项。他曾获得ACM SIGAI新兴科学家奖(2021)、IEEE最佳论文奖(2019)等荣誉。</p>
+                    </div>
+                </section>
+                
+                <!-- 工作经历模块 -->
+                <section class="card">
+                    <h2 class="card-title"><i class="fas fa-briefcase"></i>工作经历</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 - 至今</div>
+                            <h3 class="timeline-title">高级研究员</h3>
+                            <div class="timeline-company">北京大学人工智能研究所</div>
+                            <p class="timeline-description">负责计算机视觉研究团队，领导3个国家级科研项目。开发了基于Transformer的医学影像分析系统，在多家三甲医院部署应用。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2017 - 2020</div>
+                            <h3 class="timeline-title">研究科学家</h3>
+                            <div class="timeline-company">DeepMind, 伦敦</div>
+                            <p class="timeline-description">参与开发了用于医疗影像分析的深度学习模型，研究成果应用于早期癌症筛查系统，准确率达到96.5%。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2016 - 2017</div>
+                            <h3 class="timeline-title">博士后研究员</h3>
+                            <div class="timeline-company">麻省理工学院计算机科学与人工智能实验室</div>
+                            <p class="timeline-description">从事小样本学习研究，提出元学习新方法，相关工作获得CVPR 2017最佳论文提名。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- 右侧：学术成果和课题交流 -->
+            <div class="right-column">
+                <!-- 学术成果模块 -->
+                <section class="card">
+                    <h2 class="card-title"><i class="fas fa-graduation-cap"></i>学术成果</h2>
+                    <ul class="publications-list">
+                        <li class="publication-item">
+                            <h3 class="publication-title">基于Transformer的多模态学习框架</h3>
+                            <p class="publication-authors">张明，李华，王芳</p>
+                            <p class="publication-journal"><i class="fas fa-book"></i> Nature Machine Intelligence, 2023</p>
+                            <a href="#" class="publication-link"><i class="fas fa-file-pdf"></i> 查看论文</a>
+                        </li>
+                        <li class="publication-item">
+                            <h3 class="publication-title">小样本医疗影像分割的新方法</h3>
+                            <p class="publication-authors">张明，陈静，赵强</p>
+                            <p class="publication-journal"><i class="fas fa-book"></i> Medical Image Analysis, 2022</p>
+                            <a href="#" class="publication-link"><i class="fas fa-file-pdf"></i> 查看论文</a>
+                        </li>
+                        <li class="publication-item">
+                            <h3 class="publication-title">可解释AI在自动驾驶中的应用研究</h3>
+                            <p class="publication-authors">张明，刘洋，黄伟</p>
+                            <p class="publication-journal"><i class="fas fa-book"></i> IEEE TPAMI, 2021</p>
+                            <a href="#" class="publication-link"><i class="fas fa-file-pdf"></i> 查看论文</a>
+                        </li>
+                        <li class="publication-item">
+                            <h3 class="publication-title">基于元学习的小样本分类方法</h3>
+                            <p class="publication-authors">张明，周涛</p>
+                            <p class="publication-journal"><i class="fas fa-book"></i> CVPR, 2020</p>
+                            <a href="#" class="publication-link"><i class="fas fa-file-pdf"></i> 查看论文</a>
+                        </li>
+                    </ul>
+                </section>
+                
+                <!-- 课题与学术交流模块 -->
+                <section class="card">
+                    <h2 class="card-title"><i class="fas fa-flask"></i>研究课题</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h3 class="project-title"><i class="fas fa-brain"></i> 多模态智能学习</h3>
+                            <span class="project-period">2021-2024</span>
+                            <p class="project-description">研究图像、文本和语音数据的联合表示学习，开发跨模态理解与生成新方法。</p>
+                        </div>
+                        <div class="project-card">
+                            <h3 class="project-title"><i class="fas fa-heartbeat"></i> 医疗影像分析</h3>
+                            <span class="project-period">2019-2023</span>
+                            <p class="project-description">基于深度学习的医疗影像分析系统，用于早期疾病诊断和预后评估。</p>
+                        </div>
+                        <div class="project-card">
+                            <h3 class="project-title"><i class="fas fa-robot"></i> 可解释AI框架</h3>
+                            <span class="project-period">2022-2025</span>
+                            <p class="project-description">开发透明、可解释的AI决策系统，提高关键领域AI应用的可靠性和可信度。</p>
+                        </div>
+                        <div class="project-card">
+                            <h3 class="project-title"><i class="fas fa-car"></i> 自动驾驶感知系统</h3>
+                            <span class="project-period">2020-2023</span>
+                            <p class="project-description">研究复杂环境下的自动驾驶感知与决策系统，提高安全性和鲁棒性。</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="card-title" style="margin-top: 30px;"><i class="fas fa-users"></i>学术交流</h2>
+                    <div class="conference-item">
+                        <div class="conference-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="conference-details">
+                            <h3 class="conference-title">国际机器学习大会 (ICML 2023)</h3>
+                            <div class="conference-location">
+                                <i class="fas fa-map-marker-alt"></i> 夏威夷，美国
+                            </div>
+                            <p>特邀报告：多模态表示学习的最新进展</p>
+                            <span class="conference-date">2023年7月</span>
+                        </div>
+                    </div>
+                    <div class="conference-item">
+                        <div class="conference-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="conference-details">
+                            <h3 class="conference-title">计算机视觉与模式识别会议 (CVPR 2022)</h3>
+                            <div class="conference-location">
+                                <i class="fas fa-map-marker-alt"></i> 新奥尔良，美国
+                            </div>
+                            <p>专题研讨会：小样本学习在医疗影像中的应用</p>
+                            <span class="conference-date">2022年6月</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer>
+            <div class="footer-content">
+                <p>连接与交流</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link"><i class="fab fa-google-scholar"></i> Google Scholar</a>
+                    <a href="#" class="footer-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="#" class="footer-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="footer-link"><i class="fab fa-researchgate"></i> ResearchGate</a>
+                </div>
+                <div class="copyright">
+                    © 2023 张明个人学术网站 | 保留所有权利
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- 音乐控制 -->
+    <div class="music-control">
+        <button class="music-btn" id="musicToggle">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+    
+    <!-- 背景音乐 -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        // 背景音乐控制
+        const musicToggle = document.getElementById('musicToggle');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        
+        let isPlaying = false;
+        
+        musicToggle.addEventListener('click', function() {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+                musicToggle.style.background = 'linear-gradient(135deg, #5D5FEF, #3F4EF3)';
+            } else {
+                backgroundMusic.play();
+                musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                musicToggle.style.background = 'linear-gradient(135deg, #3F4EF3, #5D5FEF)';
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // 卡片动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300 + index * 200);
+            });
+            
+            // 头部区域动画
+            const headerSection = document.querySelector('.header-section');
+            headerSection.style.opacity = '0';
+            headerSection.style.transform = 'translateY(-30px)';
+            headerSection.style.transition = 'all 0.8s ease';
+            
+            setTimeout(() => {
+                headerSection.style.opacity = '1';
+                headerSection.style.transform = 'translateY(0)';
+            }, 200);
+        });
+    </script>
+</body>
+</html>
